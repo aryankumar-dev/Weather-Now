@@ -3,6 +3,7 @@ import WeatherForm from './components/WeatherForm';
 import WeatherDisplay from './components/WeatherDisplay';
 
 function App() {
+  
   const [temperature, setTemperature] = useState(null);
   const [error, setError] = useState('');
   const [city, setCity] = useState('');

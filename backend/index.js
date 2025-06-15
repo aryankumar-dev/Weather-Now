@@ -2,11 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import axios from 'axios';
 import cors from 'cors';
-
+import connectDB from "./libs/db.js";
 
 const app = express();
 dotenv.config();
-const port = process.env.PORT;
+const PORT = process.env.PORT;
 
 app.use(cors());
 const apiKey = process.env.WEATHER_API_KEY;
@@ -35,6 +35,12 @@ app.get('/weather',async (req, res) => {
 })
 
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+connectDB()
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server is running on port: ${PORT}`));
+  })
+  .catch((err) => {
+    console.error("Mongodb connection error", err);
+    process.exit(1);
+  });
+
