@@ -3,7 +3,7 @@ import WeatherForm from './components/WeatherForm';
 import WeatherDisplay from './components/WeatherDisplay';
 
 function App() {
-  
+
   const [temperature, setTemperature] = useState(null);
   const [error, setError] = useState('');
   const [city, setCity] = useState('');
@@ -12,10 +12,21 @@ function App() {
     try {
       const res = await fetch(`http://localhost:3000/weather?city=${cityName}`);
       if (!res.ok) throw new Error('Failed to fetch weather');
-      const temp = await res.text(); // because your backend sends plain text
+      const temp = await res.text();
       setTemperature(temp);
       setCity(cityName);
       setError('');
+
+     await fetch('http://localhost:3000/api/v1/add/addweather', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        city: cityName,
+        temprature: temp
+      })
+    });
     } catch (err) {
       setTemperature(null);
       setCity('');

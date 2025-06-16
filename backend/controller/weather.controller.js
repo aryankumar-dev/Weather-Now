@@ -11,6 +11,8 @@ const addweather = async(req,res) =>{
     temprature
   });
 
+
+  console.log("data added ")
   return res.status(200).send(createdata);
  
 
