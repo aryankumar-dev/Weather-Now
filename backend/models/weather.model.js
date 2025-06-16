@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+
 import mongoose, { Schema } from "mongoose";
 
 
@@ -9,7 +9,7 @@ const weatherSchema = new Schema(
             trim: true,
             required: true,
         },
-        weather: {
+        temprature: {
             type: String,
             trim: true,
             required: true,
@@ -20,4 +20,4 @@ const weatherSchema = new Schema(
     },  { timestamps: true },
 );
 
-export const Weather = mongoose.model("Weather",weatherSchema);
+export  const Weather = mongoose.model("Weather",weatherSchema);

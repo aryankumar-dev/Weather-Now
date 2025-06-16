@@ -3,11 +3,11 @@ import dotenv from "dotenv";
 import axios from 'axios';
 import cors from 'cors';
 import connectDB from "./libs/db.js";
-
+import weatherroute from "./routes/weather.route.js"
 const app = express();
 dotenv.config();
 const PORT = process.env.PORT;
-
+app.use(express.json());
 app.use(cors());
 const apiKey = process.env.WEATHER_API_KEY;
 
@@ -43,4 +43,6 @@ connectDB()
     console.error("Mongodb connection error", err);
     process.exit(1);
   });
+
+app.use("/api/v1/add", weatherroute)
 
