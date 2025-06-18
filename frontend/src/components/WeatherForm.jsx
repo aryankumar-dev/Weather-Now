@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './WeatherForm.css'; // Add this CSS file
 
 function WeatherForm(props) {
   const [city, setCity] = useState('');
@@ -12,14 +13,15 @@ function WeatherForm(props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: '1rem' }}>
+    <form className="weather-form" onSubmit={handleSubmit}>
       <input
+        className="weather-input"
         type="text"
         value={city}
         placeholder="Enter city name"
         onChange={(e) => setCity(e.target.value)}
       />
-      <button type="submit">Get Weather</button>
+      <button className="weather-button" type="submit">Get Weather</button>
     </form>
   );
 }

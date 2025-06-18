@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1526139492341-6c3e6aab5c52');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+}
+
+.weather-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.weather-input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.weather-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.weather-button:hover {
+  background-color: #115293;
+}
+
+.weather-display {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.3rem;
+}
+
+.error {
+  color: #ff4d4d;
+}

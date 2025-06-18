@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import WeatherForm from './components/WeatherForm';
 import WeatherDisplay from './components/WeatherDisplay';
-
+import './App.css';
 function App() {
 
   const [temperature, setTemperature] = useState(null);
@@ -35,7 +35,7 @@ function App() {
   };
 
   return (
-    <div style={{ padding: '2rem', fontFamily: 'Arial' }}>
+    <div className='app-container' >
       <h1>Weather App</h1>
       <WeatherForm onSearch={getWeather} />
       <WeatherDisplay temperature={temperature} city={city} error={error} />
@@ -44,3 +44,7 @@ function App() {
 }
 
 export default App;
+
+
+
+
