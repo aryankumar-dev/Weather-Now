@@ -9,8 +9,8 @@ function App() {
   const [city, setCity] = useState('');
 
   const getWeather = async (cityName) => {
-    try {
-      const res = await fetch(`http://localhost:3000/weather?city=${cityName}`);
+    try { 
+      const res = await fetch(`https://weather-now-k0yl.onrender.com/weather?city=${cityName}`);
       if (!res.ok) throw new Error('Failed to fetch weather');
       const temp = await res.text();
       setTemperature(temp);
