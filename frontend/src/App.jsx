@@ -17,7 +17,7 @@ function App() {
       setCity(cityName);
       setError('');
 
-     await fetch('http://localhost:3000/api/v1/add/addweather', {
+     await fetch('https://weather-now-k0yl.onrender.com/api/v1/add/addweather', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
