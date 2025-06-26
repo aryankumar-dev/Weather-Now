@@ -25,8 +25,8 @@ app.get('/weather',async (req, res) => {
         const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
         const response = await axios.get(apiUrl);
-        const weatherData = response.data.main.temp;
-        console.log(weatherData);
+        const weatherData = response.data;
+        console.log(response.data);
            res.send(weatherData);
        
 
