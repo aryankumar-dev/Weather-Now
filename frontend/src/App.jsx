@@ -10,14 +10,14 @@ function App() {
 
   const getWeather = async (cityName) => {
     try { 
-      const res = await fetch(`https://weather-now-k0yl.onrender.com/weather?city=${cityName}`);
+     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/weather?city=${cityName}`);
       if (!res.ok) throw new Error('Failed to fetch weather');
       const temp = await res.text();
       setTemperature(temp);
       setCity(cityName);
       setError('');
 
-     await fetch('https://weather-now-k0yl.onrender.com/api/v1/add/addweather', {
+     await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/v1/add/addweather`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -37,6 +37,7 @@ function App() {
   return (
     <div className='app-container' >
       <h1>Weather App</h1>
+      
       <WeatherForm onSearch={getWeather} />
       <WeatherDisplay temperature={temperature} city={city} error={error} />
     </div>
@@ -44,7 +45,5 @@ function App() {
 }
 
 export default App;
-
-
 
 

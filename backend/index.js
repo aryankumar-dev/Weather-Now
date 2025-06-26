@@ -9,7 +9,7 @@ dotenv.config();
 const PORT = process.env.PORT;
 app.use(express.json());
 app.use(cors({
-    origin: 'https://weather-now-navy.vercel.app',
+    origin: process.env.FRONTEND_URL,
     credentials: true   // if you're using cookies or auth headers
 }));
 const apiKey = process.env.WEATHER_API_KEY;
