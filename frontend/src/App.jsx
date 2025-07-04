@@ -61,7 +61,7 @@ function App() {
             onChange={(e) => setCity(e.target.value)}
           />
           <button className="weather-button" type="submit">
-            {loading ? "Get Weather" :" Getting Weather.."}
+            {loading ? "Getting Weather..r" :"Get Weather"}
             </button>
         </form>
 
