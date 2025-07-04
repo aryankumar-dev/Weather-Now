@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [temperature, setTemperature] = useState(null);
   const [error, setError] = useState('');
+  const [loading, setloading] = useState(false);
   const [city, setCity] = useState('');
   const [cityName, setCityName] = useState('');
   const [humidity, setHumidity] = useState(null);
@@ -13,6 +14,7 @@ function App() {
   const getWeather = async (e) => {
     e.preventDefault();
     try {
+      setloading(true);
       const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/weather?city=${city}`);
       if (!res.ok) throw new Error('Failed to fetch weather');
       const weatherData = await res.json();
@@ -41,6 +43,9 @@ function App() {
       setCity('');
       setError('Unable to fetch weather. Please try again.');
     }
+    finally {
+      setloading(false);
+    }
   };
 
   return (
@@ -55,11 +60,13 @@ function App() {
             placeholder="Enter city name"
             onChange={(e) => setCity(e.target.value)}
           />
-          <button className="weather-button" type="submit">Get Weather</button>
+          <button className="weather-button" type="submit">
+            {loading ? "Get Weather" :" Getting Weather.."}
+            </button>
         </form>
 
         <div className="weather-display">
-        
+
           {error ? (
             <p className="error">{error}</p>
           ) : temperature !== null ? (
